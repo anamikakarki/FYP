@@ -4,6 +4,9 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser"); //convert info coming from frontend requests
 const cors = require("cors");
 const userRoute = require("./routes/userRoute")
+const errorHandler = require("./middleWare/errorMiddleware")
+
+
 
 const app = express();
 
@@ -27,7 +30,9 @@ app.get("/", (req, res) => {
     res.send("Home Page");
 })
 
+//error Middleware
 
+app.use(errorHandler);
 
 
 //connect to MongoDB and Start Server.
