@@ -1,10 +1,13 @@
 const express = require("express");
 const router = express.Router();
-const {registerUser} = require("../controllers/userController");
-
+const {registerUser, loginUser, logoutUser, getUser, loginStatus} = require("../controllers/userController");
+const protect = require("../middleWare/authMiddleware")
 
 //from where the information from frontend is received 
 router.post("/register" , registerUser)
-
+router.post("/login" , loginUser)
+router.get("/logout" , logoutUser)
+router.get("/getuser" , protect, getUser)
+router.get("/loggedin" , loginStatus)
 
 module.exports = router

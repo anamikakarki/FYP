@@ -5,7 +5,7 @@ const bodyParser = require("body-parser"); //convert info coming from frontend r
 const cors = require("cors");
 const userRoute = require("./routes/userRoute")
 const errorHandler = require("./middleWare/errorMiddleware")
-
+const cookieParser = require("cookie-parser")
 
 
 const app = express();
@@ -16,6 +16,7 @@ const PORT  = process.env.PORT || 5000;
 //MiddleWares
 
 app.use(express.json())
+app.use(cookieParser())
 app.use(express.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
