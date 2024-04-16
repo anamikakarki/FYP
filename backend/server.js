@@ -4,9 +4,10 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser"); //convert info coming from frontend requests
 const cors = require("cors");
 const userRoute = require("./routes/userRoute")
+const contactRoute = require("./routes/contactRoute");
 const errorHandler = require("./middleWare/errorMiddleware")
 const cookieParser = require("cookie-parser")
-
+const path = require("path");
 
 const app = express();
 
@@ -24,6 +25,7 @@ app.use(bodyParser.json())
 //routes Middleware
 
 app.use("/api/users", userRoute)
+app.use("/api/contactus", contactRoute);
 
 //Routes 
 
