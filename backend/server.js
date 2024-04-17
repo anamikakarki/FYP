@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser"); //convert info coming from frontend requests
 const cors = require("cors");
+const productRoute = require("./routes/productRoute");
 const userRoute = require("./routes/userRoute")
 const contactRoute = require("./routes/contactRoute");
 const errorHandler = require("./middleWare/errorMiddleware")
@@ -21,11 +22,15 @@ app.use(cookieParser())
 app.use(express.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
+app.use(cors());
+
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 //routes Middleware
 
 app.use("/api/users", userRoute)
 app.use("/api/contactus", contactRoute);
+app.use("/api/products", productRoute);
 
 //Routes 
 
