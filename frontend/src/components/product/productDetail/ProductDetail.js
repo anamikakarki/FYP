@@ -49,11 +49,11 @@ const ProductDetail = () => {
             <Card cardClass="group">
               {product?.image ? (
                 <img
-                  src={product.image.filePath}
+                  src={product.image.Inventory}
                   alt={product.image.fileName}
                 />
               ) : (
-                <p>No image set for this product</p>
+                <p></p>
               )}
             </Card>
             <h4>Product Availability: {stockStatus(product.quantity)}</h4>

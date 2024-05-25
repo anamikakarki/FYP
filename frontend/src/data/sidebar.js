@@ -8,10 +8,16 @@ const menu = [
     path: "/dashboard",
   },
   {
+    title: "Products",
+    icon: <FaCommentAlt />,
+    path: "/products",
+  },
+  {
     title: "Add Product",
     icon: <BiImageAdd />,
     path: "/add-product",
   },
+  
   {
     title: "Account",
     icon: <FaRegChartBar />,
@@ -26,16 +32,13 @@ const menu = [
       },
     ],
   },
+  
   {
     title: "Contact Us",
     icon: <FaCommentAlt />,
     path: "/contact-us",
   },
-  {
-    title: "Product Names",
-    icon: <FaCommentAlt />,
-    path: "/products",
-  },
+  
 ];
 
 export default menu;
