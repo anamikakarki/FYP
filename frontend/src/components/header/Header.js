@@ -19,7 +19,7 @@ const Header = () => {
     <div className="--pad header">
       <div className="--flex-between">
         <h3>
-          <span className="--fw-thin">Welcome, </span>
+          <span className="--color-danger">Welcome, </span>
          
           <span className="--color-danger">{name}</span>
         </h3>

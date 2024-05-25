@@ -7,7 +7,7 @@ import { selectUser } from "../../redux/features/auth/authSlice";
 import "./Profile.scss";
 import { toast } from "react-toastify";
 import { updateUser } from "../../services/authService";
-import ChangePassword from "../../components/changePassword/ChangePassword";
+
 
 const EditProfile = () => {
   const navigate = useNavigate();
@@ -88,6 +88,9 @@ const EditProfile = () => {
 
   return (
     <div className="profile --my2">
+      <div className="--color-dark">
+
+     
       {isLoading && <Loader />}
 
       <Card cardClass={"card --flex-dir-column"}>
@@ -141,7 +144,7 @@ const EditProfile = () => {
         </form>
       </Card>
       <br />
-      <ChangePassword />
+      </div>
     </div>
   );
 };

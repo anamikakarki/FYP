@@ -9,6 +9,7 @@ import { SpinnerImg } from "../../loader/Loader";
 import "./ProductDetail.scss";
 import DOMPurify from "dompurify";
 
+
 const ProductDetail = () => {
   useRedirectLoggedOutUser("/login");
   const dispatch = useDispatch();
@@ -39,6 +40,7 @@ const ProductDetail = () => {
 
   return (
     <div className="product-detail">
+      <div className=" --color-dark"> 
       <h3 className="--mt">Product Detail</h3>
       <Card cardClass="card">
         {isLoading && <SpinnerImg />}
@@ -66,14 +68,14 @@ const ProductDetail = () => {
               <b>&rarr; Category : </b> {product.category}
             </p>
             <p>
-              <b>&rarr; Price : </b> {"$"}
+              <b>&rarr; Price : </b> {"Rs"}
               {product.price}
             </p>
             <p>
               <b>&rarr; Quantity in stock : </b> {product.quantity}
             </p>
             <p>
-              <b>&rarr; Total Value in stock : </b> {"$"}
+              <b>&rarr; Total Value in stock : </b> {"Rs"}
               {product.price * product.quantity}
             </p>
             <hr />
@@ -90,9 +92,12 @@ const ProductDetail = () => {
             <code className="--color-dark">
               Last Updated: {product.updatedAt.toLocaleString("en-US")}
             </code>
+            
+            
           </div>
         )}
       </Card>
+      </div>
     </div>
   );
 };

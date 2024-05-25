@@ -18,7 +18,7 @@ const Contact = () => {
   const sendEmail = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${BACKEND_URL}/api/contactus`, data);
+      const response = await axios.post(`${BACKEND_URL}/api/contactus/contact`, data);
       setSubject("");
       setMessage("");
       toast.success(response.data.message);
@@ -29,7 +29,9 @@ const Contact = () => {
 
   return (
     <div className="contact">
-      <h3 className="--mt">Contact Us</h3>
+      <div className="--color-dark">
+      <h3 className="--color-dark">Contact Us</h3>
+      
       <div className="section">
         <form onSubmit={sendEmail}>
           <Card cardClass="card">
@@ -67,16 +69,20 @@ const Contact = () => {
               </span>
               <span>
                 <FaEnvelope />
-                <p>np03cs4s210276@heraldcollege.edu.np</p>
+                <p>np03cs21276@heraldcollege.edu.np</p>
               </span>
               <span>
                 <GoLocation />
                 <p>Kathmandu, Nepal</p>
               </span>
-              
+              <span>
+                <FaTwitter />
+                <p></p>
+              </span>
             </div>
           </Card>
         </div>
+      </div>
       </div>
     </div>
   );

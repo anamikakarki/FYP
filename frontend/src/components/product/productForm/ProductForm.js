@@ -17,11 +17,14 @@ const ProductForm = ({
 }) => {
   return (
     <div className="add-product">
+      <div className="--color-dark"> 
+      
       <Card cardClass={"card"}>
         <form onSubmit={saveProduct}>
           <Card cardClass={"group"}>
-            <label>Product Image</label>
-            <code className="--color-dark">
+            <label>
+              Product Image</label>
+            <code className="--mt">
               Supported Formats: jpg, jpeg, png
             </code>
             <input
@@ -38,7 +41,8 @@ const ProductForm = ({
               <p>No image set for this poduct.</p>
             )}
           </Card>
-          <label>Product Name:</label>
+          <label>
+          Product Name:</label>
           <input
             type="text"
             placeholder="Product name"
@@ -90,6 +94,7 @@ const ProductForm = ({
           </div>
         </form>
       </Card>
+      </div>
     </div>
   );
 };

@@ -20,6 +20,7 @@ import EditProduct from "./pages/editProduct/EditProduct";
 import Profile from "./pages/profile/Profile";
 import EditProfile from "./pages/profile/EditProfile";
 import Contact from "./pages/contact/Contact";
+import ProductName from "./pages/ProductName/ProductName"
 
 
 
@@ -111,6 +112,17 @@ function App() {
             <Sidebar>
               <Layout>
                 <Contact />
+              </Layout>
+            </Sidebar>
+          }
+        />
+      
+      <Route
+          path="/products"
+          element={
+            <Sidebar>
+              <Layout>
+                <ProductName />
               </Layout>
             </Sidebar>
           }

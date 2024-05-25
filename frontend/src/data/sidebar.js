@@ -31,6 +31,11 @@ const menu = [
     icon: <FaCommentAlt />,
     path: "/contact-us",
   },
+  {
+    title: "Product Names",
+    icon: <FaCommentAlt />,
+    path: "/products",
+  },
 ];
 
 export default menu;

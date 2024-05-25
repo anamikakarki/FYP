@@ -32,6 +32,7 @@ const Profile = () => {
 
   return (
     <div className="profile --my2">
+      <div className="--color-dark"> 
       {isLoading && <SpinnerImg />}
       <>
         {!isLoading && profile === null ? (
@@ -63,6 +64,7 @@ const Profile = () => {
           </Card>
         )}
       </>
+      </div>
     </div>
   );
 };

@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { SpinnerImg } from "../../loader/Loader";
-import "./ProductList.scss";
-import { FaEdit, FaTrashAlt } from "react-icons/fa";
-import { AiOutlineEye } from "react-icons/ai";
-
+import "./ProductName.scss";
 import Search from "../../search/Search";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -11,13 +8,9 @@ import {
   selectFilteredPoducts,
 } from "../../../redux/features/product/filterSlice";
 import ReactPaginate from "react-paginate";
-import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
-import {
-  deleteProduct,
-  getProducts,
-} from "../../../redux/features/product/productSlice";
-import { Link } from "react-router-dom";
+
+
 
 const ProductList = ({ products, isLoading }) => {
   const [search, setSearch] = useState("");
@@ -33,28 +26,8 @@ const ProductList = ({ products, isLoading }) => {
     return text;
   };
 
-  const delProduct = async (id) => {
-    console.log(id);
-    await dispatch(deleteProduct(id));
-    await dispatch(getProducts());
-  };
+  
 
-  const confirmDelete = (id) => {
-    confirmAlert({
-      title: "Delete Product",
-      message: "Are you sure you want to delete this product.",
-      buttons: [
-        {
-          label: "Delete",
-          onClick: () => delProduct(id),
-        },
-        {
-          label: "Cancel",
-          // onClick: () => alert('Click No')
-        },
-      ],
-    });
-  };
 
   //   Begin Pagination
   const [currentItems, setCurrentItems] = useState([]);
@@ -80,12 +53,12 @@ const ProductList = ({ products, isLoading }) => {
   }, [products, search, dispatch]);
 
   return (
-    <div className="product-list">
+    <div className="product-name">
       <hr />
       <div className="table">
         <div className="--flex-between --flex-dir-column">
           <span>
-            <h3>Inventory Items</h3>
+            <h3>Products and Categories</h3>
           </span>
           <span>
             <Search
@@ -105,51 +78,21 @@ const ProductList = ({ products, isLoading }) => {
               <thead>
                 <tr>
                   <th>S/N</th>
-                  <th>Name</th>
+                 
+                  <th>Product Name</th>
+                  
                   <th>Category</th>
-                  <th>Price</th>
-                  <th>Quantity</th>
-                  <th>Value</th>
-                  <th>Action</th>
                 </tr>
               </thead>
 
               <tbody>
                 {currentItems.map((product, index) => {
-                  const { _id, name, category, price, quantity } = product;
+                  const { _id, name, category } = product;
                   return (
                     <tr key={_id}>
                       <td>{index + 1}</td>
                       <td>{shortenText(name, 16)}</td>
                       <td>{category}</td>
-                      <td>
-                        {"Rs"}
-                        {price}
-                      </td>
-                      <td>{quantity}</td>
-                      <td>
-                        {"Rs"}
-                        {price * quantity}
-                      </td>
-                      <td className="icons">
-                        <span>
-                          <Link to={`/product-detail/${_id}`}>
-                            <AiOutlineEye size={25} color={"purple"} />
-                          </Link>
-                        </span>
-                        <span>
-                          <Link to={`/edit-product/${_id}`}>
-                            <FaEdit size={20} color={"green"} />
-                          </Link>
-                        </span>
-                        <span>
-                          <FaTrashAlt
-                            size={20}
-                            color={"red"}
-                            onClick={() => confirmDelete(_id)}
-                          />
-                        </span>
-                      </td>
                     </tr>
                   );
                 })}
